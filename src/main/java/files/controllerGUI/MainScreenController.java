@@ -58,6 +58,12 @@ public class MainScreenController extends MainGUI {
                 gridPanel.getChildren().get(i*dim+j).setOnMouseClicked(event -> { onClicked(finalI, finalJ);});
             }
         }
+
+
+
+        //TODO here I have to call the method hasWin to understand if it has win or not,
+        //             -if it hase win, I have to remove from all the gridapanel elemnent the clickable
+        //              and make visible the button of reload and close
     }
 
 }
