@@ -30,35 +30,50 @@ public class Model {
 
     private void randomize()
     {
-        Random r ;
+        int random;
         int times=0;
         while(times<1000)
         {
-            for(int i = 0; i < this.height-1; i++)
-            {
-                for(int j = 0; j < this.length-1; j++)
-                {
-                    r=new Random();
-                    if(r.nextInt()%2==0) {    //swap(matrix[i][j+1],matrix[i][j]);
-                        int temp = matrix[i][j + 1];
-                        matrix[i][j + 1] = matrix[i][j];
-                        matrix[i][j] = temp;
-                    }
-                    else {
-                        //swap(matrix[i+1][j],matrix[i][j]);
-                        int temp = matrix[i+1][j];
-                        matrix[i+1][j] = matrix[i][j];
-                        matrix[i][j] = temp;
-                    }
-                }
-            }times++;
-            if(new Random().nextInt()%2==0)
-            {
-                int temp = matrix[height-1][length-1];
-                matrix[height-1][length-1] = matrix[0][0];
-                matrix[0][0] = temp;
+            int x=retrieveX(0);
+            int y=retrieveY(0);
+            random=new Random().nextInt(4);
+
+            if(x==0)            //up
+            {    while(random==0 || (random==1 && y==length-1) || (random==3 && y==0))
+                    {random=new Random().nextInt(4);}   }
+            if(y==length-1)     //right
+            {    while(random==1 || (random==2 && x==height-1) || (random==0 && x==0))
+                    {random=new Random().nextInt(4);}   }
+            if(x==height-1)     //down
+            {    while(random==2 || (random==3 && y==0)|| (random==1 && y==length-1))
+                    {random=new Random().nextInt(4);}   }
+            if(y==0)            //left
+            {    while(random==3 || (random==0 && x==0)|| (random==2 && x==height-1))
+                    {random=new Random().nextInt(4);}   }
+
+            switch (random) {
+                case 0:
+                    swap(x, y, x - 1, y);
+                    break;
+                case 1:
+                    swap(x, y, x, y + 1);
+                    break;
+                case 2:
+                    swap(x, y, x + 1, y);
+                    break;
+                case 3:
+                    swap(x, y, x, y-1);
+                    break;
             }
+            times++;
         }
+    }
+
+    public void swap(int x1,int y1,int x2,int y2)
+    {
+        int temp = matrix[x1][y1];
+        setMatrix(x1,y1,matrix[x2][y2]);
+        setMatrix(x2,y2,temp);
     }
 
     public int getLength() {
@@ -100,4 +115,5 @@ public class Model {
 
         return -1;
     }
+
 }

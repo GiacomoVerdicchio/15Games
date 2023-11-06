@@ -31,4 +31,10 @@ public class modelTest {
         print=new Printer();
         print.printMatrix(m);
     }
+    @Test
+    public void swap() {
+        testModel=new Model(4,4);
+        testModel.swap(3,3,2,3);
+        System.out.println("");
+    }
 }

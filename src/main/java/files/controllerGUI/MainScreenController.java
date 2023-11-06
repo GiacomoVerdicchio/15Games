@@ -54,7 +54,8 @@ public class MainScreenController extends MainGUI {
                 int finalJ = j;
                 int finalI = i;
                 gridPanel.add(pane,j,i);
-                gridPanel.getChildren().get(i*4+j).setOnMouseClicked(event -> { onClicked(finalI, finalJ);});
+                int dim=getController().getLength();
+                gridPanel.getChildren().get(i*dim+j).setOnMouseClicked(event -> { onClicked(finalI, finalJ);});
             }
         }
     }
