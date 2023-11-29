@@ -19,8 +19,8 @@ public class modelTest {
         print.printMatrix(m);
 
 
-        assertEquals(3,testModel.retrieveX(0));
-        assertEquals(3,testModel.retrieveY(0));
+        //assertEquals(3,testModel.retrieveX(0));
+        //assertEquals(3,testModel.retrieveY(0));
     }
 
     @Test

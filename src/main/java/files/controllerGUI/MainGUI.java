@@ -7,7 +7,7 @@ import files.ControllerModel;
  */
 public abstract class MainGUI {
 
-    private ControllerModel controller ;
+    protected ControllerModel controller ;
 
 
 

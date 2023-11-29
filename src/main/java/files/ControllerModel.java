@@ -53,16 +53,20 @@ public class ControllerModel {
     public boolean hasWin(int [][] matrix)
     {
         int c=1;
+        int [][] win = new int[model.getHeight()][model.getLength()];
+        for(int i=0;i<model.getHeight();i++) {
+            for (int j = 0; j < model.getLength(); j++) {
+                win[i][j]=c;
+                c++;
+            }
+        }
+        win[model.getHeight()-1][model.getLength()-1]=0;
+
         for(int i=0;i<model.getHeight();i++)
         {
-            for(int j=0;j<model.getHeight();j++)
-            {
-                if(i== model.getHeight()-1 && j== model.getHeight()-1)
-                    c=0;
-
-                if(c!=matrix[i][j])
+            for(int j=0;j<model.getLength();j++) {
+                if (win[i][j] != matrix[i][j])
                     return false;
-                c++;
             }
         }
         return true;
