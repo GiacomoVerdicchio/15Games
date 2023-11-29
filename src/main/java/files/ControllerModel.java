@@ -19,10 +19,9 @@ public class ControllerModel {
             int valueOfTheMatrix=model.getMatrix()[x][y];
             if(x==zeroX)
             {
-                if(y-1==zeroY || y+1==zeroY)
-                {
-                    model.setMatrix(x,y,0);
-                    model.setMatrix(zeroX,zeroY,valueOfTheMatrix);
+                if(y-1==zeroY || y+1==zeroY) {
+                    model.setMatrix(x, y, 0);
+                    model.setMatrix(zeroX, zeroY, valueOfTheMatrix);
                     return true;
                 }
             }else if(y==zeroY)
@@ -33,6 +32,55 @@ public class ControllerModel {
                     model.setMatrix(zeroX,zeroY,valueOfTheMatrix);
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public boolean moveNumberAtOnce(int x,int y)
+    {
+        if(x>=0 && y>=0 && x<model.getHeight() && y<model.getLength())
+        {
+            //index of 0 in the matrix
+            int zeroX=model.retrieveX(0);
+            int zeroY=model.retrieveY(0);
+            if(x==zeroX)
+            {
+                return callerToSwapAtOnce(x, y, zeroY,model.getLength(),true);
+            }else if(y==zeroY)
+            {
+                return callerToSwapAtOnce(y, x, zeroX,model.getHeight(),false);
+            }
+        }
+        return false;
+    }
+
+    private boolean callerToSwapAtOnce(int fixedIdColOrRow, int numberToSwap, int zero, int maxPos, boolean swappingInsideRows) {
+        for(int i=0; i<=maxPos; i++)
+        {
+            if(i== zero)
+            {
+                if(zero>numberToSwap)
+                    model.swapAtOnceOnTheLeft(numberToSwap, zero, fixedIdColOrRow,swappingInsideRows);
+                else
+                    model.swapAtOnceOnTheRight(numberToSwap, zero, fixedIdColOrRow,swappingInsideRows);
+                return true;
             }
         }
         return false;

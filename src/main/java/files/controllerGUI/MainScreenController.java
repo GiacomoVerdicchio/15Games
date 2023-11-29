@@ -37,7 +37,7 @@ public class MainScreenController extends MainGUI {
    public void onClicked(int i, int j)
    {
        error.setVisible(false);
-       boolean ok=this.getController().moveNumber(i,j);
+       boolean ok=this.getController().moveNumberAtOnce(i,j);
        if(!ok)
             error.setVisible(true);
        updateView();

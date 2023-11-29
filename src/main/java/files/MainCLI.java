@@ -37,7 +37,7 @@ public class MainCLI {
             //checks on the input
             Integer column=Integer.parseInt(in);
 
-            boolean isOk= controllerModel.moveNumber(row-1,column-1);
+            boolean isOk= controllerModel.moveNumberAtOnce(row-1,column-1);
             if(!isOk)
                 System.out.println("Is not a valid movement");
         }

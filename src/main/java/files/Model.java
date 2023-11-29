@@ -76,6 +76,46 @@ public class Model {
         setMatrix(x2,y2,temp);
     }
 
+
+    /**
+     * start    ->   stop
+     *   0   1   2   5
+     */
+    public void swapAtOnceOnTheRight(int stop, int start, int indexColOrRow, boolean swappingInsideRows)
+    {
+        int c =start;
+        while(c<stop)
+        {
+            if(swappingInsideRows)
+                swap(indexColOrRow,c,indexColOrRow,c+1);
+            else
+                swap(c,indexColOrRow,c+1,indexColOrRow);
+            c++;
+        }
+    }
+
+
+
+    /**
+     * stop    <-   start
+     *   3   1   2   0
+     */
+    public void swapAtOnceOnTheLeft(int stop, int start, int indexColOrRow, boolean swappingInsideRows)
+    {
+        int c =start;
+        while(c>stop)
+        {
+            if(swappingInsideRows)
+                swap(indexColOrRow,c,indexColOrRow,c-1);
+            else
+                swap(c,indexColOrRow,c-1,indexColOrRow);
+            c--;
+        }
+    }
+
+
+
+
     public int getLength() {
         return length;
     }
