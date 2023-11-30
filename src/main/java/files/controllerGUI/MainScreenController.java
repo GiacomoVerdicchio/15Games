@@ -111,5 +111,12 @@ public class MainScreenController extends MainGUI {
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
     }
+
+
+
+    //try to add a new thing in the git
+    //add another step to git
+    //add another step to git
 }
+
 
